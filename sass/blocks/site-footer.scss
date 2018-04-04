@@ -1,0 +1,63 @@
+.site-footer {
+  .container {
+  display: flex;
+}
+  padding-top: 50px;
+  padding-bottom: 66px;
+  background-color: #000000;
+  .site-info {
+    width: 33%;
+    font-family: 'LatoBlack', Arial, sans-serif;
+    font-size: 2.4rem;
+    font-weight: 400;
+    line-height: 1.7rem;
+    text-transform: uppercase;
+  }
+  a {
+    text-decoration: none;
+    color: $color-header;
+  }
+  .tagline {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Lato', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    color: $color-fade;
+    text-transform: uppercase;
+  }
+  .menu-socials-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+  .site-contacts {
+    display: flex;
+    justify-content: flex-end;
+    width: 33%;
+  }
+}
+
+.site-footer-wrapper {
+  background-color: $color-decor;
+}
+
+.site-footer-bottom {
+  position: relative;
+  padding-top: 25px;
+  padding-bottom: 19px;
+  @include container;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 0;
+    width: 100%;
+    border-top: 6px solid #000000;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+  }
+}

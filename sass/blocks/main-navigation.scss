@@ -1,0 +1,28 @@
+.main-navigation {
+  float: none;
+  background-color: #181818;
+}
+
+.main-navigation .menu-primary {
+  display: flex;
+  align-items: center;
+  height: 80px;
+    a {
+      font-family: 'LatoBlack', Arial, sans-serif;
+      font-size: 1.2rem;
+      color: #f4f4f4;
+      text-transform: uppercase;
+    }
+  .menu-item {
+    padding-right: 30px;
+    &:first-child {
+      padding-left: 15px;
+    }
+    &:last-child {
+      padding-left: 0;
+    }
+  }
+}
+
+
+

@@ -1,0 +1,58 @@
+.post-short {
+  display: flex;
+  align-items: top;
+  min-height: 265px;
+  background-color: #000000;
+  font-family: 'SourceSansPro', Arial, sans-serif;
+  font-size: 1.4rem;
+
+  .entry-thumbnail {
+    font-size: 0;
+    line-height: 0;
+    img {
+      height: 265px;
+      width: 430px;
+      object-fit: cover;
+      max-width: none;
+    }
+  }
+
+  .entry-container {
+    padding-left: 25px;
+    padding-right: 28px;
+  }
+
+
+  h2.entry-title {
+    font-family: 'LatoBlack', Arial, sans-serif;
+    font-size: 2.4rem;
+    line-height: 3.2rem;
+  }
+
+  .entry-header {
+    margin-top: 2.4rem;
+    a {
+      color: $color-header;
+      text-decoration: none;
+    }
+  }
+
+  .entry-meta {
+    font-size: 0.9rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+  }
+
+  .entry-more {
+      color: $color-header;
+  }
+
+  .entry-content {
+
+      p:first-of-type {
+        padding-top: 0;
+        margin-top: 0;
+    }
+
+  }
+}

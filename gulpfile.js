@@ -16,6 +16,7 @@ var pump = require("pump");
 var csscomb = require("gulp-csscomb");
 var gnf = require('gulp-npm-files');
 var svgstore = require("gulp-svgstore");
+var cheerio = require('gulp-cheerio');
 
 
 gulp.task("clean", function() {
@@ -47,13 +48,18 @@ gulp.task("copyNpmDependenciesOnly", function() {
 
 gulp.task("svgsprite", function() {
   var sources = gulp
-  .src("img/icons/*.svg")
+  .src("img/svg-sprite/*.svg")
   .pipe(svgstore({
       inlineSvg: true
     }))
-
-  .pipe(rename("svg-icons.svg"))
-  .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball/img/"));
+  .pipe(cheerio({
+      run: function ($) {
+          $('svg').addClass('svg-sprite');
+      },
+      parserOptions: { xmlMode: true }
+  }))
+  .pipe(rename("svg-sprite.svg"))
+  .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball/img/svg-sprite"));
 });
 
 
@@ -100,7 +106,7 @@ gulp.task("build", function(fn) {
   run("clean",
       "copy",
       "copyNpmDependenciesOnly",
-//      "svgsprite",
+      "svgsprite",
       "style",
 //      "images",
 //      "compress",
@@ -108,7 +114,7 @@ gulp.task("build", function(fn) {
 });
 
 gulp.task("php:copy", function(){
-  return gulp.src("*.php")
+  return gulp.src(["*.php","template-parts/**/*.php", "inc/**/*.php"])
   .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball"));
 });
 

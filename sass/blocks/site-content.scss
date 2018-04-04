@@ -1,0 +1,12 @@
+.site-content {
+
+  display: flex;
+  align-items: top;
+  justify-content: space-between;
+  padding-top: 35px;
+  @include container;
+
+  .widget-area {
+    margin-left: 30px;
+  }
+}

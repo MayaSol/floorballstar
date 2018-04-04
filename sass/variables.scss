@@ -1,0 +1,18 @@
+$html-size-base: 10px;
+
+$font-family: 'SourceSansPro', Arial, sans-serif;
+
+$screen-mobile: 320px;
+$screen-tablet: 768px;
+$screen-desktop: 1150px;
+
+$mobile-widths-only: "(max-width: 767px)";
+$tablet-widths: "(min-width: #{$screen-tablet})";
+$desktop-widths: "(min-width: #{$screen-desktop})";
+
+$color-golden: #F2BE24;
+
+$color-header: #f4f4f4;
+$color-font-main: #676767;
+$color-decor: #00aff2;
+$color-fade: #a7a7a7;
