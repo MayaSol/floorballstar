@@ -18,9 +18,13 @@ var gnf = require('gulp-npm-files');
 var svgstore = require("gulp-svgstore");
 var cheerio = require('gulp-cheerio');
 
+const config = {
+  build: "/var/www/floorball/wp-content/themes/floorball/",
+  templates: ["", "inc/", "template-parts/"]
+}
 
 gulp.task("clean", function() {
-  return del("/var/www/floorball/wp-content/themes/floorball/*",{force:true});
+  return del(config.build + "*",{force:true});
 });
 
 gulp.task("copy", function() {
@@ -114,8 +118,10 @@ gulp.task("build", function(fn) {
 });
 
 gulp.task("php:copy", function(){
-  return gulp.src(["*.php","template-parts/**/*.php", "inc/**/*.php"])
-  .pipe(gulp.dest("/var/www/floorball/wp-content/themes/floorball"));
+  config.templates.map(function(folder) {
+    return gulp.src(folder + "*.php")
+    .pipe(gulp.dest(config.build + folder));
+  });
 });
 
 /*gulp.task("php:update", ["php:copy"], function(done){
@@ -133,5 +139,9 @@ gulp.task("serve", function() {
   });*/
 
   gulp.watch("sass/**/*.{scss,sass}", ["style"]);
-  gulp.watch("*.php", ["php:copy"]);
+  gulp.watch(
+   config.templates.map(function(folder){
+    return folder + "*.php";
+   }),
+   ["php:copy"]);
 });
