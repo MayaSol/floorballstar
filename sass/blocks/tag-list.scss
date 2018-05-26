@@ -1,0 +1,19 @@
+.tag-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tag-item {
+    @include floorball-btn;
+    margin-right: 8px;
+    font-family: 'LatoBlack', Arial, sans-serif;
+    font-size: 1rem;
+    a {
+      @include floorball-link;
+        color: $color-header;
+      &:hover {
+        color: $color-header;
+      }
+    }
+}

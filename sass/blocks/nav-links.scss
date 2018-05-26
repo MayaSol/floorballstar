@@ -1,0 +1,13 @@
+.nav-links {
+  .nav-previous {
+    width: auto;
+    font-family: 'LatoBlack', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    @include floorball-btn;
+    a {
+      @include floorball-link;
+    }
+  }
+}

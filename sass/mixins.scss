@@ -1,0 +1,83 @@
+@mixin floorball-btn {
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #929292;
+  text-transform: uppercase;
+  color: $color-header;
+  &:hover {
+    background-color: $color-decor;
+    border-color: $color-decor;
+  }
+}
+
+@mixin floorball-link {
+    display: inline-block;
+    vertical-align: baseline;
+    min-height: 20px;
+    padding: 0 10px;
+    line-height: 20px;
+    text-decoration: none;
+    color: $color-header;
+}
+
+@mixin floorball-title {
+  display: inline-block;
+  vertical-align: middle;
+  padding-left: 10px;
+  background-color: #000000;
+  border-left: 4px solid $color-decor;
+}
+
+@mixin floorball-title--main {
+  margin-top: 4px;
+  padding-right: 20px;
+  padding-top: 0.8rem;
+  padding-bottom: 0.7rem;
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+  line-height: 3rem;
+  text-transform: uppercase;
+  color: $color-header;
+  a {
+    text-decoration: none;
+    color: $color-header;
+  }
+}
+
+@mixin angle-brackets($direction, $height: 0.5rem, $width: 0.5rem) {
+
+  $directon: to-lower-case($direction);
+
+  @if not index(top right bottom left, $direction) {
+    @warn "Direction `#{$direction}` is not matching";
+  }
+
+  $angle-by-direction: (
+    top: (angle: -135deg, shift: 0),
+    right: (angle: -45deg, shift: -40%),
+    bottom: (angle: 45deg, shift: -40%),
+    left: (angle: 135deg, shift: 40%)
+  );
+
+  $rotate-angle:-45deg;
+  $shift: -40%;
+
+  @if map-has-key($angle-by-direction, $direction) {
+    $rotate-angle: map-get(map-get($angle-by-direction, $direction),angle);
+    $shift: map-get(map-get($angle-by-direction, $direction),shift);
+  }
+  @else {
+      @warn "No anlge can be found for `#{$direction}`. Direction omitted.";
+  };
+
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 0;
+    height: $height;
+    width: $width;
+    border-bottom: 1px solid $color-breadcrumbs;
+    border-right: 1px solid $color-breadcrumbs;
+    transform: rotate(#{$rotate-angle}) translateY(#{$shift});
+}

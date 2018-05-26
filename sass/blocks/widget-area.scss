@@ -2,7 +2,6 @@
   font-family: 'Lato', Arial, sans-serif;
   font-weight: 700;
   font-size: 0.9rem;
-  text-transform: uppercase;
   color: $color-header;
   margin: 0;
   padding-left: 34px;
@@ -33,30 +32,15 @@
   list-style: none;
   background-color: #000000;
   text-transform: uppercase;
-  font-family: 'Lato', Arial, sans-serif;
-  font-weight: 700;
   a {
-    display: block;
-    margin-right: 8px;
-    margin-bottom: 8px;
-    min-height: 20px;
-    line-height: 20px;
-    vertical-align: middle;
-    padding: 0 10px;
-    color: $color-header;
-    text-decoration: none;
-    border: 1px solid #929292;
-    white-space: nowrap;
-    &:hover {
-      background-color: $color-decor;
-      border-color: $color-decor;
-    }
+    @include floorball-btn;
+    @include floorball-link;
   }
 }
 
-
 .widget-area {
   width: 270px;
+  margin-left: 30px;
 
   ul {
     @include widget-ul;
@@ -75,7 +59,12 @@
     color: $color-header;
     background-color: #000000;
     border: 1px solid $color-decor;
-  }
+      &:hover,
+      &:active,
+      &:focus {
+        color: $color-header;
+      }
+    }
 
   .search-submit {
     position: absolute;
@@ -88,6 +77,7 @@
     border: none;
     outline: none;
     border-radius: 0;
+    cursor: pointer;
 
     .icon-search {
       position: absolute;
@@ -103,16 +93,13 @@
     min-height: 30px;
     width: 100%;
     margin-bottom: 20px;
-    padding-left: 10px;
-    border-left: 4px solid $color-decor;
     font-family: 'Lato', Arial, sans-serif;
     font-weight: 700;
     font-size: 1.6rem;
     line-height: 30px;
-    vertical-align: center;
     color: $color-header;
-    background-color: #000000;
     text-transform: uppercase;
+    @include floorball-title;
   }
 
   .widget_recent_entries {
@@ -130,11 +117,31 @@
   .widget_categories {
     ul {
       @include widget-ul-boxes;
+      a {
+          margin-bottom: 8px;
+        }
     }
   }
 
   .tagcloud {
     @include widget-ul-boxes;
+    font-family: 'LatoBlack', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
+
+  .tag-cloud-link {
+    margin-bottom: 8px;
+  }
+}
+
+@media #{$mobile-widths-only} {
+  .widget-area {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    margin-left: 0;
   }
 }
 

@@ -7,11 +7,15 @@
   display: flex;
   align-items: center;
   height: 80px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
     a {
       font-family: 'LatoBlack', Arial, sans-serif;
       font-size: 1.2rem;
       color: #f4f4f4;
       text-transform: uppercase;
+      text-decoration: none;
     }
   .menu-item {
     padding-right: 30px;
@@ -21,6 +25,9 @@
     &:last-child {
       padding-left: 0;
     }
+  }
+  .menu-toggle {
+    display: none;
   }
 }
 

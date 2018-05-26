@@ -41,7 +41,5 @@
   "engines": {
     "node": "6.10"
   },
-  "dependencies": {
-    "bootstrap": "^4.0.0"
-  }
+  "dependencies": {}
 }

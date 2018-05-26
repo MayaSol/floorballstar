@@ -30,3 +30,18 @@ function floorball_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'floorball_pingback_header' );
+
+/*
+* Изменяет аргументы перед выводом tag cloud
+*/
+
+function floorball_tag_cloud_widget_parameters( $args ) {
+
+  $args['smallest'] = 1;
+  $args['largest'] = 1;
+  $args['unit'] = 'rem';
+
+  return $args;
+
+}
+add_filter( 'widget_tag_cloud_args', 'floorball_tag_cloud_widget_parameters', 10, 2);

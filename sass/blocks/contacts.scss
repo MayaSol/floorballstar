@@ -1,0 +1,62 @@
+.contacts-container
+{
+  font-family: 'Lato', Arial, sans-serif;
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  svg {
+    fill: $color-header;
+  }
+
+  .email-text {
+    margin-left: 5px;
+    color: $color-header;
+  }
+}
+
+.contacts-title
+{
+  color: $color-header;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.contacts-phone-skype,
+.contacts-phone-tel {
+  color: $color-header;
+  text-decoration: none;
+  &:link,
+  &:visited,
+  &:hover,
+  &:active
+  {
+    color: $color-header;
+  }
+}
+
+
+.contacts-phone-skype
+{
+  display: none;
+}
+
+  .contacts-phone-tel
+  {
+    display: inline-block;
+  }
+
+
+
+@media #{$desktop-widths}
+{
+  .contacts-phone-skype
+  {
+    display: inline-block;
+  }
+
+  .contacts-phone-tel
+  {
+    display: none;
+  }
+
+
+}

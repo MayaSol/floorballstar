@@ -6,7 +6,16 @@
   padding-top: 35px;
   @include container;
 
-  .widget-area {
-    margin-left: 30px;
+  &:before,&:after {
+    display: none;
+    content: none;
+  }
+}
+
+@media #{$mobile-widths-only} {
+  .site-content {
+    flex-direction: column;
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }

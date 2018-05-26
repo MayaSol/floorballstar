@@ -1,0 +1,9 @@
+.page {
+  .entry-title {
+    @include floorball-title;
+    @include floorball-title--main;
+  }
+  .entry-content {
+    margin-top: 0;
+  }
+}

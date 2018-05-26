@@ -7,8 +7,12 @@
   font-size: 1.4rem;
 
   .entry-thumbnail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 0;
     line-height: 0;
+    background-color: $color-decor;
     img {
       height: 265px;
       width: 430px;
@@ -48,11 +52,30 @@
   }
 
   .entry-content {
-
-      p:first-of-type {
-        padding-top: 0;
-        margin-top: 0;
+    p:first-of-type {
+      padding-top: 0;
+      margin-top: 0;
     }
 
   }
+}
+
+@media #{$mobile-widths-only} {
+  .post-short {
+    width: 100%;
+    flex-direction: column;
+    min-width: 320px;
+
+    .entry-thumbnail {
+      img {
+        width: auto;
+      }
+    }
+
+    .entry-container {
+      width: 100%;
+    }
+  }
+
+
 }

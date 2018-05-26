@@ -51,7 +51,7 @@
 
   <div class="site-footer-wrapper">
     <div class="site-footer-bottom">
-      <a href="https://http://floorball.ru/" class="site-title">
+      <a href="https://floorball.ru/" class="site-title">
         <?php
         /* translators: %s: CMS name, i.e. WordPress. */
           printf( esc_html__( bloginfo('name'), 'floorball' ));

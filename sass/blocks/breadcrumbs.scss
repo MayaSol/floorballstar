@@ -1,0 +1,24 @@
+.breadcrumbs {
+  margin: 0;
+  margin-bottom: 4px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-right: 15px;
+  list-style: none;
+  @include floorball-title;
+}
+
+.breadcrumbs-item {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  font-family: 'Lato', Arial, sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  color: $color-breadcrumbs;
+
+  &:not(:last-child)::after {
+    content: '>';
+    padding-left: 5px;
+  }
+}

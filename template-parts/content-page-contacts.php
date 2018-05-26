@@ -15,6 +15,8 @@
 
 	<?php floorball_post_thumbnail(); ?>
 
+  <?php floorball_contacts(); ?>
+
 	<div class="entry-content">
 		<?php
 		the_content();

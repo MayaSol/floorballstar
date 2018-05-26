@@ -22,6 +22,8 @@
 </head>
 
 <body <?php body_class(); ?>>
+
+
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'floorball' ); ?></a>
 
@@ -54,7 +56,6 @@
             <p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
             <?php
           endif;
-
 /*          $floorball_description = get_bloginfo( 'description', 'display' );
           if ( $floorball_description || is_customize_preview() ) :
             ?>
@@ -63,6 +64,7 @@
           -</p>
           <?php endif; ?>*/
           ?>
+          <a class="header-menu-toggle"></a>
         </div>
       </div><!-- .site-branding -->
 
