@@ -219,68 +219,66 @@ if ( ! function_exists( 'floorball_contacts' ) ) :
 
   function floorball_contacts() {
 
-    $page = get_page_by_path("contacts");
+/*    $page = get_page_by_path("contacts");
     if ($page) {
       $id = $page->ID;
     }
     else {
       $id = get_the_ID();
     };
-
+*/
     echo '<section class="contacts-container">';
 
-    $phone_01_title = esc_html( get_post_meta( $id, 'phone_01_title', true) );
-    $phone_01_number = esc_html( get_post_meta( $id, 'phone_01_number', true) );
+    $phone_01_title = esc_html( get_option('phone_01_title') );
+    $phone_01_number = esc_html( get_option('phone_01_number') );
 
     if ($phone_01_number) :
 
       if ($phone_01_title) :
 
-        echo '<h2 class="contacts-title">' . esc_html( get_post_meta( $id, 'phone_01_title', true) ) . '</h2>';
+        echo '<h2 class="contacts-title">' . $phone_01_title . '</h2>';
 
       endif;
 
       $svg_icon_phone = '<span class="icon-wrapper icon-wrapper-phone">'
       . floorball_get_svg( $args = array( 'icon' => 'phone', 'size' => array('1em','1em')) ) . '</span>';
-      $tel_01 = esc_html( get_post_meta( $id, 'phone_01_number', true) );
       echo '<p>' . $svg_icon_phone;
-      echo '<a class="contacts-phone-tel" href="tel:' . $tel_01 . '">' . $tel_01 . '</a> ';
-      echo '<a class="contacts-phone-skype" href="skype:' . $tel_01 . '?call">' . $tel_01 . '</a> </p>';
+      echo '<a class="contacts-phone-tel" href="tel:' . $phone_01_number . '">' . $phone_01_number . '</a> ';
+      echo '<a class="contacts-phone-skype" href="skype:' . $phone_01_number . '?call">' . $phone_01_number . '</a> </p>';
 
     endif;
 
-    $phone_02_title = esc_html( get_post_meta( $id, 'phone_02_title', true) );
-    $phone_02_number = esc_html( get_post_meta( $id, 'phone_02_number', true) );
+    $phone_02_title = esc_html( get_option('phone_02_title') );
+    $phone_02_number = esc_html( get_option('phone_02_number') );
 
     if ($phone_02_number) :
 
       if ($phone_02_title) :
 
-        echo '<h2 class="contacts-title">' . esc_html( get_post_meta( $id, 'phone_02_title', true) ) . '</h2>';
+        echo '<h2 class="contacts-title">' . $phone_02_title . '</h2>';
 
       endif;
 
-      $tel_02 = esc_html( get_post_meta( $id, 'phone_02_number', true) );
       echo '<p>' . $svg_icon_phone;
-      echo '<a class="contacts-phone-tel" href="tel:' . $tel_02 . '">' . $tel_01 . '</a> ';
-      echo '<a class="contacts-phone-skype" href="skype:' . $tel_02 . '?call">' . $tel_02 . '</a> </p>';
+      echo '<a class="contacts-phone-tel" href="tel:' . $phone_02_number . '">' . $phone_02_number . '</a> ';
+      echo '<a class="contacts-phone-skype" href="skype:' . $phone_02_number . '?call">' . $phone_02_number . '</a> </p>';
 
     endif;
 
-    $address = esc_html( get_post_meta( $id, 'address', true) );
+    $address = esc_html( get_option('address'));
 
     if ($address) :
 
       $svg_icon_map = '<p> <span class="icon-wrapper icon-wrapper-map">'
       . floorball_get_svg( $args = array( 'icon' => 'map', 'size' => array('1em','1em')) ) . '</span>';
-      $address = nl2br( esc_html( get_post_meta( $id, 'address', true) ) );
+      $address = nl2br( $address );
 
       echo $svg_icon_map;
       echo $address;
 
     endif;
 
-    $mailto = esc_html( get_post_meta( $id, 'email', true) );
+    $mailto = esc_html( get_option('email') );
 
     if ($mailto) :
       $svg_icon_mailto = '<p> <span class="icon-wrapper icon-wrapper-mailto">'

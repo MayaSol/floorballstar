@@ -169,13 +169,18 @@ if ( defined( 'JETPACK__VERSION' ) ) {
  */
 require get_parent_theme_file_path( '/inc/icon-functions.php' );
 
+/*
+ * Options page
+ */
+require get_parent_theme_file_path( '/inc/options-page.php' );
+
 
 /*
 * Path to img folder on localhost
 */
- if( !defined('THEME_IMG_PATH')){
-   define( 'THEME_IMG_PATH', get_stylesheet_directory_uri() . '/img' );
-  }
+if( !defined('THEME_IMG_PATH')){
+ define( 'THEME_IMG_PATH', get_stylesheet_directory_uri() . '/img' );
+}
 
 /* Set custom excerpt lenght */
 function floorball_custom_excerpt_length() {
@@ -183,66 +188,6 @@ function floorball_custom_excerpt_length() {
 }
 add_filter( 'excerpt_length', 'floorball_custom_excerpt_length');
 
-
-/*
-* Add custom options pages
-*/
-
-add_action('admin_menu', 'floorball_add_options_page');
-
-function floorball_add_options_page() {
-    add_submenu_page('options-general.php','Options', 'Options Menu', 'manage_options', 'options_fields', 'floorball_options_page');
-
-    add_action('admin_init', 'floorball_options_settings');
-};
-
-function floorball_options_settings() {
-    register_setting( 'options_fields', 'our_first_field');
-};
-
-function floorball_options_page() {?>
-        <div class="wrap">
-        <h2>Дополнительные настройки</h2>
-        <form method="post" action="options.php">
-            <?php
-                settings_fields( 'options_fields' );
-                do_settings_sections( 'options_fields' );
-                submit_button();
-            ?>
-        </form>
-    </div> <?php
-}
-
-/*
-* Add sections for options page
-*/
-
-add_action( 'admin_init', 'floorball_setup_sections');
-
-function floorball_setup_sections() {
-    add_settings_section( 'contacts_options', 'Контакты', 'floorball_section_callback', 'options_fields' );
-}
-
-function floorball_section_callback( $arguments ) {
-    switch( $arguments['id'] ){
-        case 'contacts_options':
-            break;
-    }
-}
-
-/*
-* Add fields for sections for options page
-*/
-
-add_action( 'admin_init', 'floorball_setup_fields' );
-
-function floorball_setup_fields() {
-    add_settings_field( 'our_first_field', 'Field Name', 'field_callback', 'options_fields', 'contacts_options' );
-}
-
-function field_callback( $arguments ) {
-    echo '<input name="our_first_field" id="our_first_field" type="text" value="' . get_option( 'our_first_field' ) . '" />';
-}
 
 /*
 * Debug functions

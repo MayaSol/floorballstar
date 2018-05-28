@@ -77,3 +77,20 @@
   font-size: 1.2rem;
 }
 
+@media #{$mobile-widths-only} {
+  .contact-form-main {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: $screen-mobile;
+    .contact-form-row {
+      flex-basis: 100%;
+    }
+    .contact-form-email,
+    .contact-form-name {
+      width: 100%;
+      margin-right: 0;
+      margin-top: 10px;
+    }
+  }
+}

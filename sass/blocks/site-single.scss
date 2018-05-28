@@ -105,3 +105,15 @@
   }
 
 }
+
+@media #{$mobile-widths-only} {
+  .site-single {
+    .post-entry {
+      width: 100%;
+      min-width: $screen-mobile;
+    }
+    .post-thumbnail {
+      min-width: $screen-mobile;
+    }
+  }
+}

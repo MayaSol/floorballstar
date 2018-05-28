@@ -41,7 +41,11 @@
         <div class="site-contacts-inner">
           <p>Пишите нам:</p>
           <p>
-            <a href="mailto:floorball-email@floorball.ru">floorball-email@floorball.ru</a>
+            <a href="mailto:floorball-email@floorball.ru">
+              <?php
+              echo get_option('email');
+              ?>
+            </a>
           </p>
         </div>
       </div>

@@ -64,7 +64,7 @@
   .post-short {
     width: 100%;
     flex-direction: column;
-    min-width: 320px;
+    min-width: $screen-mobile;
 
     .entry-thumbnail {
       img {
