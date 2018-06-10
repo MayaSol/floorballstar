@@ -8,9 +8,21 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<?php
+  if ($post->post_name = 'gallery') {
+    $post_class = 'gallery-page';
+  }
+?>
+
+<article id="post-<?php the_ID(); ?>" <?php post_class($post_class); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php
+      $post_link = get_permalink();
+      the_title( '<h1 class="entry-title"><a href="' . $post_link . '">', '</a></h1>' );
+      if ($post->post_name = 'gallery') {
+        $post_class = 'gallery-page';
+      }
+    ?>
 	</header><!-- .entry-header -->
 
 	<?php floorball_post_thumbnail(); ?>

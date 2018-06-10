@@ -14,7 +14,26 @@ get_header();
     <main id="main" class="site-main site-single">
 
       <div class="single-title-wrapper">
-        <h1 class="single-title">Новости</h1>
+        <?php
+          error_log('$post->post_type: ' . $post->post_type);
+          switch ( $post->post_type ) {
+            case 'post':
+              $single_title = __('Новости');
+              break;
+            case 'gallery_album':
+              $single_title = $post->post_title;
+              break;
+            default:
+              $single_title = '';
+              break;
+          }
+          error_log('$single_title: ' . $single_title);
+          if ($single_title) {
+        ?>
+        <h1 class="single-title"><?php echo $single_title; ?></h1>
+        <?php
+          }
+        ?>
       </div>
 
         <?php

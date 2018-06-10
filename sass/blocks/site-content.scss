@@ -1,5 +1,4 @@
 .site-content {
-
   display: flex;
   align-items: top;
   justify-content: space-between;
@@ -9,6 +8,10 @@
   &:before,&:after {
     display: none;
     content: none;
+  }
+
+  .content-area {
+    width: 100%;
   }
 }
 
